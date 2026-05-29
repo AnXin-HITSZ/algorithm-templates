@@ -8,17 +8,13 @@
  * @Version 1.0
  */
 public class BsearchDouble {
-    public static void main(String[] args) {
-
-    }
-
-    static boolean check(double x) {
+    boolean check(double x) {
         /* 检查 x 是否满足某种性质 */
 //        return false;
         return true;
     }
 
-    static double bsearch(double l, double r) {
+    double bsearch(double l, double r) {
         final double EPS = 1e-6;
         while (r - l > EPS) {
             double mid = (l + r) / 2;

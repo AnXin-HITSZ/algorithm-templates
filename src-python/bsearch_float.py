@@ -7,4 +7,11 @@ def check(x: float) -> bool:
     return True
 
 def bsearch(l: float, r: float) -> float:
-    EPS: Final[int]
+    EPS: Final[float] = 1e-6
+    while r - l > EPS:
+        mid = (l + r) / 2
+        if check(mid):
+            r = mid
+        else:
+            l = mid
+    return l

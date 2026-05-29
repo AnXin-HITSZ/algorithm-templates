@@ -8,11 +8,7 @@
  * @Version 1.0
  */
 public class BsearchInt {
-    public static void main(String[] args) {
-
-    }
-
-    static boolean check(int x) {
+    boolean check(int x) {
         /* 检查 x 是否满足某种性质 */
 //        return false;
         return true;
@@ -22,7 +18,7 @@ public class BsearchInt {
      * 区间 [l, r] 被划分成 [l, mid] 和 [mid + 1, r] 时使用
      * 即：查找第一个满足条件的元素（左边界）
      */
-    static int bsearch_1(int l, int r) {
+    int bsearch_1(int l, int r) {
         while (l < r) {
             int mid = l + r >> 1;
             if (check(mid)) {
