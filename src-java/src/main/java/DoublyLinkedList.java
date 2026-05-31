@@ -1,24 +1,27 @@
+import org.w3c.dom.Node;
+
 /**
- * ClassName: SinglyLinkedList
+ * ClassName: DoublyLinkedList
  * Package: PACKAGE_NAME
  * Description:
  *
  * @Author AnXin
- * @Create 2026/5/29 15:53
+ * @Create 2026/5/31 16:30
  * @Version 1.0
  */
-public class SinglyLinkedList<E> {
+public class DoublyLinkedList<E> {
 
-    private final Node dummyHead;
+    private Node dummyHead;
     private int size;
 
-    public SinglyLinkedList() {
-        dummyHead = new Node(null, null);
-        size = 0;
+    DoublyLinkedList() {
+        this.dummyHead = new Node(null, null, null);
+        this.size = 0;
     }
 
     private class Node {
         E data;
+        Node prev;
         Node next;
 
         Node() {
@@ -27,11 +30,11 @@ public class SinglyLinkedList<E> {
 
         Node(E data) {
             this.data = data;
-            this.next = null;
         }
 
-        Node(E data, Node next) {
+        Node(E data, Node prev, Node next) {
             this.data = data;
+            this.prev = prev;
             this.next = next;
         }
     }
@@ -47,7 +50,11 @@ public class SinglyLinkedList<E> {
         }
 
         Node newNode = new Node(e);
+        newNode.prev = prev;
         newNode.next = prev.next;
+        if (prev.next != null) {
+            prev.next.prev = newNode;
+        }
         prev.next = newNode;
         size++;
     }
@@ -64,18 +71,22 @@ public class SinglyLinkedList<E> {
 
         Node delNode = prev.next;
         prev.next = delNode.next;
+        if (delNode.next != null) {
+            delNode.next.prev = prev;
+        }
+        delNode.prev = null;
         delNode.next = null;
         size--;
 
         return delNode.data;
     }
 
-    public void printSinglyLinkedList() {
+    public void printDoublyLinkedList() {
         Node cur = dummyHead.next;
         while (cur != null) {
             System.out.print(cur.data);
             if (cur.next != null) {
-                System.out.print(" -> ");
+                System.out.print(" <-> ");
             }
             cur = cur.next;
         }
