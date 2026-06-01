@@ -20,6 +20,8 @@ public class QuickSort {
         }
         quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
+
+        scan.close();
     }
 
     static void quickSort(int[] q, int l, int r) {

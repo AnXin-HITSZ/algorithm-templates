@@ -29,6 +29,8 @@ public class UnboundedKnapsackProblem {
         int ret = findMaxValue(n, m, v, w);
 
         System.out.println(ret);
+
+        scan.close();
     }
 
     public static int findMaxValue(int n, int m, int[] v, int[] w) {

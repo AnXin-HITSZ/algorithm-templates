@@ -31,6 +31,8 @@ public class BoundedKnapSackProblem {
         int ret = findMaxValue(n, m, v, w, s);
 
         System.out.println(ret);
+
+        scan.close();
     }
 
     public static int findMaxValue(int n, int m, int[] v, int[] w, int[] s) {
